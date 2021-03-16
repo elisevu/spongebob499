@@ -13,6 +13,17 @@ with open('all_spongebob.txt', 'w', encoding='utf8') as sponge:
             sponge.write(filename + '\n')
             sponge.write(now)
             sponge.write('\n')
+    
+#read in all spongebob scripts, separate characters from dialogue/actions
+with open('all_spongebob.txt', 'r', encoding='utf8') as sponge:
+    sponge_script = sponge.read()
+    sponge_script = sponge_script.split('\n')
+
+separated = []
+for line in sponge_script:
+    separated.append(line.split(': '))
+# print(separated[0:5])
+    
 
 
 
