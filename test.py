@@ -14,7 +14,7 @@ path = 'archive/SpongeBob_SquarePants_Transcripts'
 #             now = file.read()
 #             sponge.write(filename + '\n')
 #             sponge.write(now)
-#             sponge.write('\n')
+            # sponge.write('\n')
     
 #read in all spongebob scripts, separate characters from dialogue/actions
 with open('all_spongebob.txt', 'r', encoding='utf8') as sponge:
@@ -50,7 +50,7 @@ for line in separated:
         
 
 
-def process_and_get_words()
+def process_and_get_words():
     # setting up futurama dataset
     with open('archive/Futurama/only_spoken_text.csv', 'r', encoding='utf8') as f_spoken_text:
         f_lines_w_speaker = f_spoken_text.readlines()
@@ -76,6 +76,20 @@ def process_and_get_words()
             continue
         else:
             s_dialogue.append(line)
+    
+    with open('actual_both_dialogues.txt', 'w', encoding='utf8') as both:
+        valid = lambda l : l != '\n' and l != ' ' and l != '' and l[0] != ' ' and l[0] != '['
+        for line in f_dialogue:
+            if valid(line):
+                both.write(line.replace('"', '').replace('<poem>', '').replace(':  ', ': ', 1))
+
+        
+        for line in s_dialogue:
+            if valid(line):
+                both.write(line)
+        
+
+    
     
     
     
